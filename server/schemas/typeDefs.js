@@ -1,38 +1,32 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
     _id: ID
-    username: String
     email: String
-    landlord: Boolean
-    contact: Contact
-    properties: [Property]
+    name: String
+    mobile: String
+    events: [Event]
   }
 
-  type Contact {
-    firstName: String
-    lastName: String
-    street: String
-    city: String
-    state: String
-    zipcode: Int
-    phone1: String
-    phone2: String
+  type Event {
+    title: String
+    date: String
+    host: [User]
+    performers: [User]
   }
 
-  type Property {
+  type Venue {
     _id: ID!
-    nickname: String
+    name: String
     street: String
     city: String
     state: String
     zipcode: String
-    rent: Int
-    image: String
-    due: String
-    manager: [User]
-    tenants: [User]
+    phone: String
+    email: String
+    contact: [User]
+    events: [Event]
   }
 
   input inputContact {
