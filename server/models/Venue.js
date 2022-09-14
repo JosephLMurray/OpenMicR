@@ -34,7 +34,7 @@ const venueSchema = new Schema({
   email: {
     type: String,
   },
-  owner: [
+  contact: [
     {
       type: Schema.Types.ObjectId,
       ref: "User",
